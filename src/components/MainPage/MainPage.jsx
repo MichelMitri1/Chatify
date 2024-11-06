@@ -12,7 +12,7 @@ export default function MainPage({ currentUser, users }) {
   const getAllFriendRequests = async () => {
     try {
       const response = await fetch(
-        `http://localhost:3000/api/users/getAllFriendRequests/${currentUser.uid}`
+        `http://10.40.13.145:3000/api/users/getAllFriendRequests/${currentUser.uid}`
       );
 
       if (!response.ok) {

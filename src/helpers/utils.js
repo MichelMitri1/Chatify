@@ -13,7 +13,7 @@ export const randomString = (length) => {
 
 export const loginUser = async (email, pass) => {
   try {
-    const userApi = "http://localhost:3000/api/users/loginUser";
+    const userApi = "http://10.40.13.145:3000/api/users/loginUser";
 
     const userResponse = await fetch(userApi, {
       method: "POST",

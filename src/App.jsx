@@ -15,7 +15,7 @@ function App() {
   const getAllUsers = async () => {
     try {
       const response = await fetch(
-        "http://localhost:3000/api/users/getAllUsers"
+        "http://10.40.13.145:3000/api/users/getAllUsers"
       );
       if (!response.ok) {
         throw new Error("Failed to fetch users");
