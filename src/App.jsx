@@ -15,7 +15,9 @@ function App() {
   const getAllUsers = async () => {
     try {
       const response = await fetch(
-        "http://localhost:3000/api/users/getAllUsers"
+        window.location.hostname.includes("localhost")
+          ? "http://localhost:3000/api/users/getAllUsers"
+          : "https://chatifytexting.netlify.app/api/users/getAllUsers"
       );
       if (!response.ok) {
         throw new Error("Failed to fetch users");

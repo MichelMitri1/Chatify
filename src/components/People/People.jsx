@@ -41,8 +41,11 @@ export default function People({
     let id = currentUser.uid + user.idOfUserSent;
     try {
       const response = await fetch(
-        `http://localhost:3000/api/users/getSpecificChatForUser/${id}`
+        window.location.hostname.includes("localhost")
+          ? `http://localhost:3000/api/users/getSpecificChatForUser/${id}`
+          : `https://chatifytexting.netlify.app/api/users/getSpecificChatForUser/${id}`
       );
+
       if (!response.ok) {
         throw new Error("Failed to fetch Chat");
       }
@@ -56,7 +59,9 @@ export default function People({
 
   const handleAcceptRequest = async (idOfUserSent) => {
     try {
-      const acceptReq = "http://localhost:3000/api/users/acceptRequest";
+      const acceptReq = window.location.hostname.includes("localhost")
+        ? "http://localhost:3000/api/users/acceptRequest"
+        : "https://chatifytexting.netlify.app/api/users/acceptRequest";
 
       const foundUser = users.find((user) => user.userId === idOfUserSent);
 
@@ -90,11 +95,13 @@ export default function People({
 
   const handleDeclineRequest = async (idOfUserSent) => {
     try {
-      const acceptReq = "http://localhost:3000/api/users/declineRequest";
+      const declineReq = window.location.hostname.includes("localhost")
+        ? "http://localhost:3000/api/users/declineRequest"
+        : "https://chatifytexting.netlify.app/api/users/declineRequest";
 
       const foundUser = users.find((user) => user.userId === idOfUserSent);
 
-      const userResponse = await fetch(acceptReq, {
+      const userResponse = await fetch(declineReq, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

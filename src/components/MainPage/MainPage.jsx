@@ -12,7 +12,9 @@ export default function MainPage({ currentUser, users }) {
   const getAllFriendRequests = async () => {
     try {
       const response = await fetch(
-        `http://localhost:3000/api/users/getAllFriendRequests/${currentUser.uid}`
+        window.location.hostname.includes("localhost")
+          ? `http://localhost:3000/api/users/getAllFriendRequests/${currentUser.uid}`
+          : `https://chatifytexting.netlify.app/api/users/getAllFriendRequests/${currentUser.uid}`
       );
 
       if (!response.ok) {

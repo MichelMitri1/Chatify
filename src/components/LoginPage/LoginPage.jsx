@@ -5,7 +5,7 @@ import toast, { Toaster } from "react-hot-toast";
 import { auth } from "../../helpers/firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
 
-export default function LoginPage({ user }) {
+export default function LoginPage() {
   const navigate = useNavigate();
 
   const [loginInfo, setLoginInfo] = useState({

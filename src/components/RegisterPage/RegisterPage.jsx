@@ -19,7 +19,9 @@ export default function RegisterPage() {
   async function registerUser(e) {
     e.preventDefault();
     try {
-      const userApi = "http://localhost:3000/api/users/addUsers";
+      const userApi = window.location.hostname.includes("localhost")
+        ? "http://localhost:3000/api/users/addUsers"
+        : "https://chatifytexting.netlify.app/api/users/addUsers";
 
       const userResponse = await fetch(userApi, {
         method: "POST",

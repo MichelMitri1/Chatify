@@ -11,34 +11,34 @@ export const randomString = (length) => {
   return result;
 };
 
-export const loginUser = async (email, pass) => {
-  try {
-    const userApi = "http://10.40.13.145:3000/api/users/loginUser";
+// export const loginUser = async (email, pass) => {
+//   try {
+//     const userApi = "http://10.40.13.145:3000/api/users/loginUser";
 
-    const userResponse = await fetch(userApi, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        email: email,
-        pass: pass,
-      }),
-    });
+//     const userResponse = await fetch(userApi, {
+//       method: "POST",
+//       headers: {
+//         "Content-Type": "application/json",
+//       },
+//       body: JSON.stringify({
+//         email: email,
+//         pass: pass,
+//       }),
+//     });
 
-    if (!userResponse.ok) {
-      const errorText = await userResponse.text();
-      throw new Error(
-        `HTTP error! status: ${userResponse.status}, message: ${errorText}`
-      );
-    }
+//     if (!userResponse.ok) {
+//       const errorText = await userResponse.text();
+//       throw new Error(
+//         `HTTP error! status: ${userResponse.status}, message: ${errorText}`
+//       );
+//     }
 
-    const result = await userResponse.json();
-    return result;
-  } catch (error) {
-    throw error;
-  }
-};
+//     const result = await userResponse.json();
+//     return result;
+//   } catch (error) {
+//     throw error;
+//   }
+// };
 
 export const formatTime = (timestamp) => {
   const date = new Date(timestamp);
