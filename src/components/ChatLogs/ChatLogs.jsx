@@ -160,7 +160,7 @@ export default function ChatLogs({
     };
 
     fetchMessages();
-  }, [currentUser.uid, clickedUser.idOfUserSent]);
+  }, [currentUser.uid, clickedUser.idOfUserSent, setChats]);
 
   useEffect(() => {
     if (messageEndRef.current) {

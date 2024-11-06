@@ -27,7 +27,7 @@ export default function MainPage({ currentUser, users }) {
     if (currentUser) {
       getAllFriendRequests();
     }
-  }, [currentUser]);
+  });
 
   return (
     <div className="mainContainer">

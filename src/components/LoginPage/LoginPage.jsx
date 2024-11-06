@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import "./loginPage.css";
 import { useNavigate } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
-import { loginUser } from "../../helpers/utils";
 import { auth } from "../../helpers/firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
 

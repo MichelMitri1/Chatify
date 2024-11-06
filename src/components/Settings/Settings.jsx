@@ -12,28 +12,25 @@ export default function Settings({ currentUser, users }) {
   useEffect(() => {
     const foundUser = users.find((user) => user.userId === currentUser.uid);
     setFoundCurrentUser(foundUser);
-  }, [users]);
+  }, [users, currentUser.uid]);
 
   return (
     <div className="settingsContainer">
-        <nav className="userInfoNav">
-          <div className="userInfoHeader">
-            <IoIosArrowBack
-              onClick={() => navigate("/main")}
-              className="icon"
-            />
-            <h1>User Info</h1>
-          </div>
-          <button
-            className="logoutButton"
-            onClick={async () => {
-              await signOut(auth);
-              navigate("/");
-            }}
-          >
-            Log Out
-          </button>
-        </nav>
+      <nav className="userInfoNav">
+        <div className="userInfoHeader">
+          <IoIosArrowBack onClick={() => navigate("/main")} className="icon" />
+          <h1>User Info</h1>
+        </div>
+        <button
+          className="logoutButton"
+          onClick={async () => {
+            await signOut(auth);
+            navigate("/");
+          }}
+        >
+          Log Out
+        </button>
+      </nav>
       <div className="settingsWrapper">
         <div className="userInfoContainer">
           <div className="userInfoWrapper">

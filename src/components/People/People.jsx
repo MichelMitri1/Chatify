@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { IoSettingsOutline, IoPersonSharp } from "react-icons/io5";
 import { IoIosSearch } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
@@ -21,6 +21,7 @@ export default function People({
 
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [originalFriendRequests, setOriginalFriendRequests] = useState([]);
+  const originalFriendRequestsSet = useRef(false);
 
   const searchForFriend = (e) => {
     const name = e.target.value;
@@ -135,11 +136,12 @@ export default function People({
     return () => {
       unsubscribeRequests();
     };
-  }, [currentUser.uid]);
+  }, [currentUser.uid, setFriendRequests]);
 
   useEffect(() => {
-    if (originalFriendRequests.length === 0) {
+    if (!originalFriendRequestsSet.current && friendRequests.length > 0) {
       setOriginalFriendRequests(friendRequests);
+      originalFriendRequestsSet.current = true;
     }
   }, [friendRequests]);
 
