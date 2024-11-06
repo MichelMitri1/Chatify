@@ -41,7 +41,7 @@ export default function People({
     let id = currentUser.uid + user.idOfUserSent;
     try {
       const response = await fetch(
-        `http://10.40.13.145:3000/api/users/getSpecificChatForUser/${id}`
+        `http://localhost:3000/api/users/getSpecificChatForUser/${id}`
       );
       if (!response.ok) {
         throw new Error("Failed to fetch Chat");
@@ -56,10 +56,9 @@ export default function People({
 
   const handleAcceptRequest = async (idOfUserSent) => {
     try {
-      const acceptReq = "http://10.40.13.145:3000/api/users/acceptRequest";
+      const acceptReq = "http://localhost:3000/api/users/acceptRequest";
 
       const foundUser = users.find((user) => user.userId === idOfUserSent);
-      console.log("test");
 
       const userResponse = await fetch(acceptReq, {
         method: "POST",
@@ -91,7 +90,7 @@ export default function People({
 
   const handleDeclineRequest = async (idOfUserSent) => {
     try {
-      const acceptReq = "http://10.40.13.145:3000/api/users/declineRequest";
+      const acceptReq = "http://localhost:3000/api/users/declineRequest";
 
       const foundUser = users.find((user) => user.userId === idOfUserSent);
 

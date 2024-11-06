@@ -19,7 +19,7 @@ export default function RegisterPage() {
   async function registerUser(e) {
     e.preventDefault();
     try {
-      const userApi = "http://10.40.13.145:3000/api/users/addUsers";
+      const userApi = "http://localhost:3000/api/users/addUsers";
 
       const userResponse = await fetch(userApi, {
         method: "POST",
