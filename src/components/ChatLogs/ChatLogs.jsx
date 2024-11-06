@@ -49,6 +49,8 @@ export default function ChatLogs({
         user.username.includes(addFriendInput.usernameOfPerson)
       );
 
+      users.map((user) => console.log(user.username));
+
       if (!foundUser) {
         toast.error("User not found");
         return;

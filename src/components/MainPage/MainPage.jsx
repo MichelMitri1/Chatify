@@ -9,12 +9,12 @@ export default function MainPage({ currentUser, users }) {
   const [chats, setChats] = useState([]);
   const [clickedUser, setClickedUser] = useState({});
 
-
   const getAllFriendRequests = async () => {
     try {
       const response = await fetch(
         `http://localhost:3000/api/users/getAllFriendRequests/${currentUser.uid}`
       );
+
       if (!response.ok) {
         throw new Error("Failed to fetch friend requests");
       }
