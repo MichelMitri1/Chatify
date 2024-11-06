@@ -57,7 +57,7 @@ export default function People({
 
   const handleAcceptRequest = async (idOfUserSent) => {
     try {
-      ("http://localhost:3000/api/users/acceptRequest");
+      const acceptReq = "http://localhost:3000/api/users/acceptRequest";
 
       const foundUser = users.find((user) => user.userId === idOfUserSent);
 
