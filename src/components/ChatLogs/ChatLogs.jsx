@@ -56,9 +56,7 @@ export default function ChatLogs({
         return;
       }
 
-      const addingFriendApi = window.location.hostname.includes("localhost")
-        ? "http://localhost:3000/api/users/addFriend"
-        : "https://chatifytexting.netlify.app/api/users/addFriend";
+      const addingFriendApi = "http://localhost:3000/api/users/addFriend";
 
       const userResponse = await fetch(addingFriendApi, {
         method: "POST",
@@ -97,9 +95,7 @@ export default function ChatLogs({
     }
 
     try {
-      const sendMessageApi = window.location.hostname.includes("localhost")
-        ? "http://localhost:3000/api/users/sendMessage"
-        : "https://chatifytexting.netlify.app/api/users/sendMessage";
+      const sendMessageApi = "http://localhost:3000/api/users/sendMessage";
 
       setMessage({
         message: "",

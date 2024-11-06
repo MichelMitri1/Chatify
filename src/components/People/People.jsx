@@ -41,9 +41,7 @@ export default function People({
     let id = currentUser.uid + user.idOfUserSent;
     try {
       const response = await fetch(
-        window.location.hostname.includes("localhost")
-          ? `http://localhost:3000/api/users/getSpecificChatForUser/${id}`
-          : `https://chatifytexting.netlify.app/api/users/getSpecificChatForUser/${id}`
+        `http://localhost:3000/api/users/getSpecificChatForUser/${id}`
       );
 
       if (!response.ok) {
@@ -59,9 +57,7 @@ export default function People({
 
   const handleAcceptRequest = async (idOfUserSent) => {
     try {
-      const acceptReq = window.location.hostname.includes("localhost")
-        ? "http://localhost:3000/api/users/acceptRequest"
-        : "https://chatifytexting.netlify.app/api/users/acceptRequest";
+      ("http://localhost:3000/api/users/acceptRequest");
 
       const foundUser = users.find((user) => user.userId === idOfUserSent);
 
@@ -95,9 +91,7 @@ export default function People({
 
   const handleDeclineRequest = async (idOfUserSent) => {
     try {
-      const declineReq = window.location.hostname.includes("localhost")
-        ? "http://localhost:3000/api/users/declineRequest"
-        : "https://chatifytexting.netlify.app/api/users/declineRequest";
+      const declineReq = "http://localhost:3000/api/users/declineRequest";
 
       const foundUser = users.find((user) => user.userId === idOfUserSent);
 
