@@ -2,6 +2,7 @@ const userService = require("../services/userServices.js");
 
 const addUser = async (req, res) => {
   const { name, username, email, pass } = req.body;
+  console.log("test");
 
   try {
     if (!name || !email || !pass || !username) {

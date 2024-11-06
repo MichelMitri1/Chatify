@@ -18,12 +18,16 @@ const { auth, db } = require("../helpers/firebase");
 const addUser = async (name, username, email, pass) => {
   await createUserWithEmailAndPassword(auth, email, pass);
 
+  console.log(email, pass);
+
   const user = auth.currentUser;
   const userId = user.uid;
   await updateProfile(user, {
     displayName: name,
   });
   user.displayName = name;
+
+  console.log("test");
 
   await addDoc(collection(db, "users"), {
     name,
