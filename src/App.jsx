@@ -48,7 +48,7 @@ function App() {
           <Routes>
             <Route path="/" element={<LoginPage />} />
             <Route path="/register" element={<RegisterPage />} />
-            {user && (
+            {user ? (
               <>
                 <Route
                   path="/main"
@@ -69,6 +69,8 @@ function App() {
                   }
                 />
               </>
+            ) : (
+              <Route path="*" element={<LoginPage />} />
             )}
           </Routes>
         </div>

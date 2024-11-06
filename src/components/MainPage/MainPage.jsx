@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
 import People from "../People/People";
 import "./mainPage.css";
+
 import ChatLogs from "../ChatLogs/ChatLogs";
 
 export default function MainPage({ currentUser, users }) {
   const [friendRequests, setFriendRequests] = useState([]);
   const [chats, setChats] = useState([]);
   const [clickedUser, setClickedUser] = useState({});
+
 
   const getAllFriendRequests = async () => {
     try {
