@@ -88,7 +88,7 @@ const getAllFriendRequests = async (req, res) => {
     return res.status(200).json(friendRequests);
   } catch (error) {
     console.error("Error in getAllFriendRequests controller:", error);
-    return res.status(500).json({ error: "Failed to fetch friend requests" });
+    return res.status(500).json({ error: error.message });
   }
 };
 
@@ -100,7 +100,7 @@ const getSpecificChatForUser = async (req, res) => {
 
     return res.status(200).json(chats);
   } catch (error) {
-    return res.status(500).json({ error: "Failed to fetch chat" });
+    return res.status(500).json({ error: error.message });
   }
 };
 
